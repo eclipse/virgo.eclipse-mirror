@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="build-virgo-build" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+	<property file="${basedir}/../build.properties"/>
+	<property file="${basedir}/../build.versions"/>
+    <import file="${basedir}/../virgo-build/multi-bundle/default.xml"/>
+    
+    <target name="update-eclipse-artifacts" depends="convert-eclipse-artifacts" description="Takes care of mirroring specified artifacts from a specified p2 repository, converting them to Ivy format and publishing them to Eclipse's Virgo Ivy repositories.">
+        <ant antfile="${converted-repo-location}/build.xml" target="publish-mirrored-ivy" inheritAll="false"/>
+    </target>
+    
+    <target name="convert-eclipse-artifacts" depends="fetch-unzipped-virgo-build-tools">
+        <fail message="The 'mirror.ius' property must be set on this target. Use either ant property or import a property file.">
+            <condition>
+                <not>
+                    <isset property="mirror.ius"/>
+                </not>
+            </condition>
+        </fail>
+        <fail message="The 'mirror.source' property must be set on this target. Pass URI as value.">
+            <condition>
+                <not>
+                    <isset property="mirror.source"/>
+                </not>
+            </condition>
+        </fail>
+        
+        <property name="mirrored-repo-location" value="${target.dir}/mirrored-repo"/>
+        <property name="converted-repo-location" value="${target.dir}/converted-repo"/>
+        
+        <antcall target="p2.mirror-metadata">
+            <param name="tools.dir" value="${tools.dir}"/>
+            <param name="source" value="${mirror.source}"/>
+            <param name="destination" value="${mirrored-repo-location}"/> 
+            <param name="roots" value="${mirror.ius}"/>
+        </antcall>
+        
+        <antcall target="p2.mirror-artifacts">
+            <param name="tools.dir" value="${tools.dir}"/>
+            <param name="source" value="${mirror.source}"/>
+            <param name="destination" value="${mirrored-repo-location}"/> 
+            <param name="roots" value="${mirror.ius}"/>
+        </antcall>
+        
+        <mkdir dir="${converted-repo-location}"/>
+        <antcall target="convert-p2-to-ivy">
+            <param name="tools.dir" value="${tools.dir}"/>
+            <param name="source.plugins.dir" value="${mirrored-repo-location}/plugins"/>
+            <param name="destination" value="${converted-repo-location}"/> 
+            <param name="offset.to.virgo.build" value="../../../virgo-build"/>
+            <param name="updated.build.versions.location" value="${basedir}/../build.versions"/>
+        </antcall>
+    </target>
+</project>
