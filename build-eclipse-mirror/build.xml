@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="build-virgo-build" xmlns:ivy="antlib:org.apache.ivy.ant">
 
+    <path id="bundles">
+    </path>
+    
 	<property file="${basedir}/../build.properties"/>
 	<property file="${basedir}/../build.versions"/>
     <import file="${basedir}/../virgo-build/multi-bundle/default.xml"/>
@@ -48,7 +51,7 @@
             <param name="source.plugins.dir" value="${mirrored-repo-location}/plugins"/>
             <param name="destination" value="${converted-repo-location}"/> 
             <param name="offset.to.virgo.build" value="../../../virgo-build"/>
-            <param name="updated.build.versions.location" value="${basedir}/../build.versions"/>
+            <param name="updated.build.versions.location" value="${basedir}/../mirrored.build.versions"/>
         </antcall>
     </target>
 </project>
