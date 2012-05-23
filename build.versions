@@ -85,3 +85,4 @@ javax.xml.rpc=1.1.0.v201005080400
 org.apache.catalina.ha=7.0.26.v201205030525
 org.apache.tomcat.util=7.0.26.v201205030742
 org.apache.felix.gogo.shell=0.8.0.v201110170705
+javax.transaction=1.1.1.v201105210645
