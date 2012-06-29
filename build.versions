@@ -67,7 +67,6 @@ javax.mail=1.4.0.v201005080615
 javax.jms=1.1.0.v201205091237
 javax.xml=1.3.4.v201005080400
 javax.ejb=3.0.0.v201203061215
-javax.persistence=1.0.0.v200905011740
 javax.xml.soap=1.3.0.v201105210645
 org.apache.catalina=7.0.26.v201205021508
 org.apache.catalina.tribes=7.0.26.v201205030742
