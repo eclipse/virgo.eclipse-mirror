@@ -62,6 +62,7 @@ org.slf4j.api=1.6.4.v20120130-2120
 org.slf4j.jul=1.6.4.v20120130-2120
 org.slf4j.jcl=1.6.4.v20120130-2120
 org.slf4j.log4j=1.6.4.v20120130-2120
+org.slf4j.nop=1.6.4.v201207191220
 javax.servlet=3.0.0.v201112011016
 javax.mail=1.4.0.v201005080615
 javax.jms=1.1.0.v201205091237
