@@ -7,6 +7,6 @@
   </properties>
     <children size='2'>
         <child location='http://download.eclipse.org/eclipse/updates/4.2-I-builds/I20120518-2145'/>
-        <child location='http://build.eclipse.org/orbit/committers/orbit-I/20120823075514/I20120823075514/repository/'/>
+        <child location='http://build.eclipse.org/orbit/committers/orbit-I/20120830002639/I20120830002639/repository/'/>
     </children>
 </repository>
