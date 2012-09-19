@@ -11,6 +11,7 @@ javax.inject=1.0.0.v20091030
 javax.jms=1.1.0.v201205091237
 javax.jws=2.0.0.v201005080400
 javax.mail=1.4.0.v201005080615
+javax.persistence=2.0.4.v201112200901
 javax.resource=1.6.0.v201204270900
 javax.security.auth.message=1.0.0.v201108011116
 javax.security.jacc=1.4.0.v201205031350
