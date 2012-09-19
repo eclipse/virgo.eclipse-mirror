@@ -19,7 +19,7 @@ javax.servlet.jsp.jstl=1.2.0.v201105211821
 javax.servlet.jsp=2.2.0.v201112011158
 javax.servlet=3.0.0.v201112011016
 javax.transaction=1.1.1.v201105210645
-javax.validation=1.0.0.GA=v201205091237
+javax.validation=1.0.0.GA
 javax.ws.rs=1.1.1.v20101004-1200
 javax.wsdl=1.6.2.v201012040545
 javax.xml.rpc=1.1.0.v201005080400
