@@ -2,7 +2,7 @@ cdi.api=1.0.0.v201105160744
 ch.qos.logback.classic=1.0.3.v20120828-0612
 ch.qos.logback.core=1.0.3.v20120828-0612
 ch.qos.logback.slf4j=1.0.0.v201208311022
-javassist=3.10.0.GA=v201205170710
+javassist=3.10.0.GA
 javax.activation=1.1.0.v201108011116
 javax.annotation=1.1.0.v201108011116
 javax.ejb=3.1.1.v201204261316
@@ -37,7 +37,7 @@ org.apache.commons.dbcp=1.4.0.v201204271417
 org.apache.commons.lang=2.6.0.v201205030909
 org.apache.commons.pool=1.6.0.v201204271246
 org.apache.coyote=7.0.29.v201208230737
-org.apache.derby=10.5.1.1=v201108232300
+org.apache.derby=10.5.1.1
 org.apache.el=7.0.29.v201208220722
 org.apache.felix.gogo.command=0.8.0.v201108120515
 org.apache.felix.gogo.runtime=0.8.0.v201108120515
