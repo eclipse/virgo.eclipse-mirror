@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="C:/test/neo-sdk-2.0.0/repository/plugins/org.apache.xbean.asm_3.9.0.v201205031117.jar"/>
+	<classpathentry kind="lib" path="C:/test/neo-sdk-2.0.0/repository/plugins/org.apache.xbean.bundleutils_3.9.0.v201205031405.jar"/>
+	<classpathentry kind="lib" path="C:/test/neo-sdk-2.0.0/repository/plugins/org.eclipse.osgi_3.8.1.v20120830-144521.jar"/>
+	<classpathentry kind="lib" path="C:/test/neo-sdk-2.0.0/repository/plugins/org.slf4j.api_1.6.4.v20120130-2120.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

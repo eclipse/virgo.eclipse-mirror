@@ -8,7 +8,17 @@
 	<property file="${basedir}/../build.versions"/>
     <import file="${basedir}/../virgo-build/multi-bundle/default.xml"/>
     
+    <target name="clean">
+        <delete file="${basedir}/../mirrored.build.versions"/>
+        <delete file="${basedir}/../hotfixed.build.versions"/>
+        <delete dir="${target.dir}"/>
+    </target>
+    
     <target name="update-eclipse-artifacts" depends="convert-eclipse-artifacts" description="Takes care of mirroring specified artifacts from a specified p2 repository, converting them to Ivy format and publishing them to Eclipse's Virgo Ivy repositories.">
+        <ant antfile="${converted-repo-location}/build.xml" target="publish-mirrored-ivy" inheritAll="false"/>
+    </target>
+    
+    <target name="update-hotfixed-artifacts" depends="convert-local-artifacts" description="Takes care of uploading hot fixed third party artifacts to Eclipse's Virgo Ivy repositories.">
         <ant antfile="${converted-repo-location}/build.xml" target="publish-mirrored-ivy" inheritAll="false"/>
     </target>
     
@@ -52,6 +62,21 @@
             <param name="destination" value="${converted-repo-location}"/> 
             <param name="offset.to.virgo.build" value="../../../virgo-build"/>
             <param name="updated.build.versions.location" value="${basedir}/../mirrored.build.versions"/>
+        </antcall>
+    </target>
+    
+    <target name="convert-local-artifacts" depends="fetch-unzipped-virgo-build-tools">
+        
+        <property name="local-artifacts-location" value="${basedir}/../hotfix"/>
+        <property name="converted-repo-location" value="${target.dir}/converted-hotfix-repo"/>
+        
+        <mkdir dir="${converted-repo-location}"/>
+        <antcall target="convert-p2-to-ivy">
+            <param name="tools.dir" value="${tools.dir}"/>
+            <param name="source.plugins.dir" value="${local-artifacts-location}/plugins"/>
+            <param name="destination" value="${converted-repo-location}"/> 
+            <param name="offset.to.virgo.build" value="../../../virgo-build"/>
+            <param name="updated.build.versions.location" value="${basedir}/../hotfixed.build.versions"/>
         </antcall>
     </target>
 </project>
