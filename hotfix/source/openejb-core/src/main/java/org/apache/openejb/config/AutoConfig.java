@@ -89,6 +89,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.net.URLEncoder;
 
 import static java.util.Arrays.asList;
 import static org.apache.openejb.config.ServiceUtils.ANY;
@@ -219,12 +220,12 @@ public class AutoConfig implements DynamicDeployer, JndiConstants {
         }
 
         for (ClientModule clientModule : appModule.getClientModules()) {
-            URI moduleURI = URI.create(clientModule.getModuleId());
+            URI moduleURI = URI.create(URLEncoder.encode(clientModule.getModuleId()));
             processPersistenceRefs(clientModule.getApplicationClient(), clientModule, persistenceUnits, moduleURI);
         }
 
         for (WebModule webModule : appModule.getWebModules()) {
-            URI moduleURI = URI.create(webModule.getModuleId());
+            URI moduleURI = URI.create(URLEncoder.encode(webModule.getModuleId()));
             processPersistenceRefs(webModule.getWebApp(), webModule, persistenceUnits, moduleURI);
         }
     }
@@ -575,7 +576,7 @@ public class AutoConfig implements DynamicDeployer, JndiConstants {
         }
 
         for (WebModule webModule : appModule.getWebModules()) {
-            URI moduleUri = URI.create(webModule.getModuleId());
+            URI moduleUri = URI.create(URLEncoder.encode(webModule.getModuleId()));
             for (MessageDestinationRef ref : webModule.getWebApp().getMessageDestinationRef()) {
                 String destinationId = resolveDestinationId(ref, moduleUri, destinationResolver, destinationTypes);
                 if (destinationId != null) {
@@ -594,7 +595,7 @@ public class AutoConfig implements DynamicDeployer, JndiConstants {
                 continue;
             }
 
-            URI moduleUri = URI.create(ejbModule.getModuleId());
+            URI moduleUri = URI.create(URLEncoder.encode(ejbModule.getModuleId()));
             OpenejbJar openejbJar = ejbModule.getOpenejbJar();
 
             for (EnterpriseBean bean : ejbModule.getEjbJar().getEnterpriseBeans()) {
