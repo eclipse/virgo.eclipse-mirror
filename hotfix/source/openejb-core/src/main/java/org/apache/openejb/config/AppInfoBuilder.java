@@ -16,6 +16,22 @@
  */
 package org.apache.openejb.config;
 
+import static org.apache.openejb.util.URLs.toFile;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
+
+import javax.xml.bind.JAXBException;
+
 import org.apache.openejb.OpenEJBException;
 import org.apache.openejb.assembler.classic.AppInfo;
 import org.apache.openejb.assembler.classic.ClientInfo;
@@ -64,21 +80,6 @@ import org.apache.openejb.util.Logger;
 import org.apache.openejb.util.MakeTxLookup;
 import org.apache.openejb.util.Messages;
 import org.apache.openejb.util.References;
-
-import javax.xml.bind.JAXBException;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
-
-import static org.apache.openejb.util.URLs.toFile;
 
 /**
  * @version $Rev: 1214977 $ $Date: 2011-12-15 14:40:42 -0800 (Thu, 15 Dec 2011) $
@@ -571,17 +572,22 @@ class AppInfoBuilder {
         public static final String JTADATASOURCE_PROP = "javax.persistence.jtaDataSource";
         public static final String NON_JTADATASOURCE_PROP = "javax.persistence.nonJtaDataSource";
         private static final String DEFAULT_PERSISTENCE_PROVIDER = "org.apache.openjpa.persistence.PersistenceProviderImpl";
+		public static final String FORCE_PROVIDER_ENV = "openejb.jpa.force."
+				+ PROVIDER_PROP;
 
         public static final String HIBERNATE_TRANSACTION_MANAGER_LOOKUP_CLASS = "hibernate.transaction.manager_lookup_class";
         public static final String HIBERNATE_JTA_PLATFORM = "hibernate.transaction.jta.platform";
 
         private static String providerEnv;
+		private static boolean forceProviderEnv;
         private static String transactionTypeEnv;
         private static String jtaDataSourceEnv;
         private static String nonJtaDataSourceEnv;
 
         static {
             providerEnv = System.getProperty(PROVIDER_PROP);
+			forceProviderEnv = Boolean.valueOf(System.getProperty(
+					FORCE_PROVIDER_ENV, "true"));
             transactionTypeEnv = System.getProperty(TRANSACTIONTYPE_PROP);
             jtaDataSourceEnv = System.getProperty(JTADATASOURCE_PROP);
             nonJtaDataSourceEnv = System.getProperty(NON_JTADATASOURCE_PROP);
@@ -693,7 +699,8 @@ class AppInfoBuilder {
         }
 
         private static void overrideFromSystemProp(PersistenceUnitInfo info) {
-            if (providerEnv != null) {
+			if (providerEnv != null
+					&& (info.provider == null || forceProviderEnv)) {
                 info.provider = providerEnv;
             }
             if (info.provider == null) {
