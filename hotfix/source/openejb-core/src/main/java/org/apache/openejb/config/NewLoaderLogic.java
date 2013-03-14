@@ -186,6 +186,7 @@ public class NewLoaderLogic {
         		"catalina.jar",
         		"catalina-",
         		"cglib-",
+                "camel-",
         		"commons-beanutils",
         		"commons-cli-",
         		"commons-codec-",
