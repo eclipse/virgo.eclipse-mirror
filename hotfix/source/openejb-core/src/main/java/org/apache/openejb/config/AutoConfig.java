@@ -734,8 +734,9 @@ public class AutoConfig implements DynamicDeployer, JndiConstants {
             }
 
             String destinationId = (mappedName.length() == 0) ? ref.getName() : mappedName;
-            if (ignoredResources != null && ignoredResources.contains(destinationId)) {
-                ref.setLookupName(ignoredResourcesPrefix + destinationId);
+            if (ignoredResources != null && (ignoredResources.contains(destinationId) || ignoredResources.contains(correctedId(ignoredResourcesPrefix, destinationId)))) {
+                final String correctedId = ignoredResourcesPrefix + correctedId(ignoredResourcesPrefix, destinationId);
+                ref.setLookupName(correctedId);
                 ref.setName("openejb/" + moduleId + "/" + destinationId);
             } else {
                 try {
