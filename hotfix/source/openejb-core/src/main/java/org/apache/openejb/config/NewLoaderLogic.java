@@ -403,7 +403,9 @@ public class NewLoaderLogic {
         		"xmlsec-",
         		"xmltooling-",
         		"xmlunit-",
-        		"ziplock-"
+        		"ziplock-",
+        		"eclipselink.jar",
+        		"org.eclipse.persistence."
         );
 
 //        filter = Filters.optimize(filter, new PatternFilter(".*/openejb-.*"));
