@@ -3,7 +3,7 @@ mvn -Dmaven.test.skip=true clean install - skips tests [~1min]
 mvn clean install [~17min]
 
 After successful build patch the Bundle-Version and jar name to something like this increasing the current version at the back:
-org.apache.openejb.core_4.5.2-virgo-1
+org.apache.openejb.core_4.5.2.virgo-1
 
 Add "Exposed-ContentType: Implementation" to the manifest of the newly built openejb-core jar.
 Add the following packages to the Import-Package header:
