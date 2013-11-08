@@ -146,3 +146,4 @@ org.slf4j.nop=1.7.2.v201212060727
 osgi.enterprise=4.2.0.v201108120515
 scannotation=1.0.2.v201205170710
 org.objectweb.asm=3.2.0.v200909071300
+org.mozilla.javascript=1.7.4.v201209142200
