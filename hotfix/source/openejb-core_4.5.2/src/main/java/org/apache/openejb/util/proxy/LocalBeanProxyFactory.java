@@ -131,7 +131,7 @@ public class LocalBeanProxyFactory implements Opcodes {
             }
             try {
                 final byte[] proxyBytes = generateProxy(classToProxy, classFileName, interfaces);
-                return Unsafe.defineClass(classToProxy, proxyName, proxyBytes);
+                return Unsafe.defineClass(classToProxy, proxyName, proxyBytes, cl);
             } catch (Exception e) {
                 throw new InternalError(e.toString());
             }
@@ -794,8 +794,8 @@ public class LocalBeanProxyFactory implements Opcodes {
             }
         }
 
-        private static Class defineClass(Class<?> clsToProxy, String proxyName, byte[] proxyBytes) throws IllegalAccessException, InvocationTargetException {
-            return (Class<?>) defineClass.invoke(unsafe, proxyName, proxyBytes, 0, proxyBytes.length, clsToProxy.getClassLoader(), clsToProxy.getProtectionDomain());
+        private static Class defineClass(Class<?> clsToProxy, String proxyName, byte[] proxyBytes, ClassLoader cl) throws IllegalAccessException, InvocationTargetException {
+            return (Class<?>) defineClass.invoke(unsafe, proxyName, proxyBytes, 0, proxyBytes.length, cl, clsToProxy.getProtectionDomain());
         }
     }
 

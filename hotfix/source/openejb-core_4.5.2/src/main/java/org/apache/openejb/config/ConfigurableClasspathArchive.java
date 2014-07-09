@@ -16,6 +16,7 @@
  */
 package org.apache.openejb.config;
 
+import org.apache.openejb.ClassLoaderUtil;
 import org.apache.openejb.core.EmptyResourcesClassLoader;
 import org.apache.openejb.loader.SystemInstance;
 import org.apache.xbean.finder.archive.Archive;
@@ -78,7 +79,9 @@ public class ConfigurableClasspathArchive extends CompositeArchive implements Sc
         final ClassLoader loader = module.getClassLoader();
         final String name = "META-INF/" + name();
         try {
-            URL scanXml = new URLClassLoader(new URL[] { location }, new EmptyResourcesClassLoader()).getResource(name);
+        	URLClassLoader tmpLoader = new URLClassLoader(new URL[] { location }, new EmptyResourcesClassLoader()); 
+            URL scanXml = tmpLoader.getResource(name);
+            ClassLoaderUtil.destroyClassLoader(tmpLoader);
             if (scanXml == null && !forceDescriptor) {
                 return ClasspathArchive.archive(loader, location);
             } else if (scanXml == null) {
