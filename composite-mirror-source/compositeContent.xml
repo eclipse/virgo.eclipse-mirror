@@ -7,7 +7,7 @@
   </properties>
   <children size='4'>
     <child location='http://download.eclipse.org/eclipse/updates/4.4/R-4.4-201406061215/'/>
-    <child location='http://build.eclipse.org/orbit/committers/orbit-I/20140607063447/I20140607063447/repository/'/>
+    <child location='http://build.eclipse.org/orbit/committers/orbit-I/20140905070303/I20140905070303/repository/'/>
     <child location='http://download.eclipse.org/gemini/jpa/updates/1.1.0-RC1/'/>
     <child location='http://download.eclipse.org/rt/eclipselink/updates/2.4.1.v20121003-ad44345/'/>
   </children>
