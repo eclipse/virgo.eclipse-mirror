@@ -6,9 +6,9 @@
     <property name='p2.timestamp' value='1243822502499'/>
   </properties>
   <children size='4'>
-    <child location='http://download.eclipse.org/eclipse/updates/4.4/R-4.4-201406061215/'/>
-    <child location='http://build.eclipse.org/orbit/committers/orbit-I/20141218090704/I20141218090704/repository/'/>
-    <child location='http://download.eclipse.org/gemini/jpa/updates/1.1.0-RC1/'/>
-    <child location='http://download.eclipse.org/rt/eclipselink/updates/2.4.1.v20121003-ad44345/'/>
+    <child location='http://download.eclipse.org/eclipse/updates/4.4/R-4.4.1-201409250400/'/>
+    <child location='http://download.eclipse.org/tools/orbit/downloads/drops/R20150124073747/repository/'/>
+    <child location='http://download.eclipse.org/gemini/updates/jpa/1.1.0/'/>
+    <child location='http://download.eclipse.org/rt/eclipselink/updates/2.5.0.v20130507-3faac2b/'/>
   </children>
 </repository>
