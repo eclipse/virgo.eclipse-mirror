@@ -145,7 +145,7 @@
     # no pooling. Instead instances will be created on demand and live
     # for exactly one method call before being removed.
 
-    StrictPooling = true
+    StrictPooling = false
 
     # Specifies the maximum time that an instance should live before
     # it should be retired and removed from use.  This will happen
