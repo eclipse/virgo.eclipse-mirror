@@ -10,5 +10,6 @@
     <child location='http://download.eclipse.org/tools/orbit/downloads/drops/R20150124073747/repository/'/>
     <child location='http://download.eclipse.org/gemini/updates/jpa/1.1.0/'/>
     <child location='http://download.eclipse.org/rt/eclipselink/updates/2.5.0.v20130507-3faac2b/'/>
+	<child location='http://download.eclipse.org/gemini/updates/management/1.0.5.RELEASE/'/>
   </children>
 </repository>
