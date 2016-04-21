@@ -1,15 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?compositeMetadataRepository version='1.0.0'?>
-<repository name='Test'
-    type='org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository' version='1.0.0'>
+<repository name='Test' type='org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository' version='1.0.0'>
   <properties size='1'>
-    <property name='p2.timestamp' value='1243822502499'/>
+    <property name='p2.timestamp' value='1460641554000'/>
   </properties>
-  <children size='5'>
-    <child location='http://download.eclipse.org/eclipse/updates/4.4/R-4.4.1-201409250400/'/>
-    <child location='http://download.eclipse.org/tools/orbit/downloads/drops/R20150124073747/repository/'/>
+  <children size='4'>
+    <!-- Kepler
+    -->
+    <child location='http://download.eclipse.org/eclipse/updates/4.3/R-4.3.2-201402211700/'/>
+    <!-- Luna
+    <child location='http://download.eclipse.org/eclipse/updates/4.4/R-4.4.2-201502041700/'/>
+    -->
+    <!-- Mars
+    <child location='http://download.eclipse.org/eclipse/updates/4.5/R-4.5.2-201602121500/'/>
+    -->
+    <!-- Neon
+    -->
+    <child location='http://download.eclipse.org/jetty/updates/jetty-bundles-8.x/8.1.16.v20140903/'/>
+<!--
+    <child location='http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository/'/>
     <child location='http://download.eclipse.org/gemini/updates/jpa/1.1.0/'/>
     <child location='http://download.eclipse.org/rt/eclipselink/updates/2.5.0.v20130507-3faac2b/'/>
-	<child location='http://download.eclipse.org/gemini/updates/management/1.0.5.RELEASE/'/>
+-->
+    <child location='http://download.eclipse.org/gemini/updates/management/2.0.0.RELEASE'/>
+    <child location='http://download.eclipse.org/rt/rap/2.3/SR2-20150128-1013/'/> 
   </children>
 </repository>
