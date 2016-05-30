@@ -2,13 +2,13 @@
 <?compositeArtifactRepository version='1.0.0'?>
 <repository name='Test' type='org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository' version='1.0.0'>
   <properties size='2'>
-    <property name='p2.timestamp' value='1460641554000'/>
+    <property name='p2.timestamp' value='1464623400000'/>
     <property name='p2.compressed' value='false'/>
   </properties>
-  <children size='4'>
+  <children size='1'>
     <!-- Kepler
-    -->
     <child location='http://download.eclipse.org/eclipse/updates/4.3/R-4.3.2-201402211700/'/>
+    -->
     <!-- Luna
     <child location='http://download.eclipse.org/eclipse/updates/4.4/R-4.4.2-201502041700/'/>
     -->
@@ -17,13 +17,16 @@
     -->
     <!-- Neon
     -->
-    <child location='http://download.eclipse.org/jetty/updates/jetty-bundles-8.x/8.1.16.v20140903/'/>
 	<!--
+    <child location='http://download.eclipse.org/jetty/updates/jetty-bundles-8.x/8.1.16.v20140903/'/>
     <child location='http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository/'/>
     <child location='http://download.eclipse.org/gemini/updates/jpa/1.1.0/'/>
     <child location='http://download.eclipse.org/rt/eclipselink/updates/2.5.0.v20130507-3faac2b/'/>
 -->
+    <child location='http://download.eclipse.org/rt/eclipselink/updates/2.4.2.v20130514-5956486/'/>
+<!--
     <child location='http://download.eclipse.org/gemini/updates/management/2.0.0.RELEASE'/>
     <child location='http://download.eclipse.org/rt/rap/2.3/SR2-20150128-1013/'/> 
+-->
   </children>
 </repository>
